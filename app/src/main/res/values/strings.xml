@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Coins</string>
 
+    <string name="coin_name">Name</string>
+    <string name="price">Price</string>
+
     <string name="usd">Usd</string>
     <string name="eur">Eur</string>
 </resources>

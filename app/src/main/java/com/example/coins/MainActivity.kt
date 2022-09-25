@@ -42,6 +42,10 @@ class MainActivity : AppCompatActivity() {
             val selectedCoin = parent?.getItemAtPosition(position) as Coin
             // Выводим результат
             Toast.makeText(this, selectedCoin.toString(), Toast.LENGTH_SHORT).show()
+            // Переходим ко второму экрану
+            val intent = Intent(this, CoinActivity::class.java)
+            intent.putExtra(selectedCoin::class.java.simpleName, selectedCoin)
+            startActivity(intent)
         }
     }
 

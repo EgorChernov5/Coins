@@ -8,42 +8,16 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.google.android.material.chip.ChipGroup
-        android:id="@+id/chips_group"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="8dp"
-        android:paddingHorizontal="16dp"
-        app:singleSelection="true">
-
-        <com.google.android.material.chip.Chip
-            style="@style/Widget.MaterialComponents.Chip.Choice"
-            android:id="@+id/usd"
-            android:layout_width="64dp"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:checked="true"
-            android:text="@string/usd"/>
-
-        <com.google.android.material.chip.Chip
-            style="@style/Widget.MaterialComponents.Chip.Choice"
-            android:id="@+id/eur"
-            android:layout_width="64dp"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:text="@string/eur"/>
-
-    </com.google.android.material.chip.ChipGroup>
+    <include layout="@layout/toolbar" android:id="@+id/toolbar_appbar"/>
 
     <ListView
         android:id="@+id/coins_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 
-        app:layout_constraintTop_toTopOf="@+id/chips_group"
+        app:layout_constraintTop_toTopOf="@+id/toolbar_appbar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent">
-    </ListView>
+        app:layout_constraintRight_toRightOf="parent"/>
 
 </LinearLayout>

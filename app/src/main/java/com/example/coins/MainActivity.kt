@@ -7,7 +7,6 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ListView
 import android.widget.Toast
-import androidx.appcompat.widget.Toolbar
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 
@@ -21,11 +20,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
-        setSupportActionBar(toolbar)
-
-        val chipsGroup = findViewById<ChipGroup>(R.id.chips_group)
-        val chip = chipsGroup.findViewById<Chip>(R.id.usd)
+        val chipsGroup = findViewById<ChipGroup>(R.id.ma_chips_group)
+        val chip = chipsGroup.findViewById<Chip>(R.id.ma_usd)
         chip.isChecked = true
         currency = chip.text
 
@@ -37,7 +33,7 @@ class MainActivity : AppCompatActivity() {
 //        test
         setInitialData()
 
-        listView = findViewById<ListView>(R.id.coins_list)
+        listView = findViewById<ListView>(R.id.ma_coins_list)
         coinAdapter = CoinAdapter(this, R.layout.list_item, coins)
         listView?.adapter = coinAdapter
         listView?.setOnItemClickListener { parent: AdapterView<*>?, view: View?,
@@ -55,22 +51,17 @@ class MainActivity : AppCompatActivity() {
 
 //    test
     private fun setInitialData(){
-        coins.add(Coin ("Bitcoin", 19058.57f, R.drawable.bitcoin))
-        coins.add(Coin ("Bnb", 275.60f, R.drawable.bnb))
-        coins.add(Coin ("Solana", 33.15f, R.drawable.solana))
-        coins.add(Coin ("Ethereum", 1311.50f, R.drawable.ethereum))
-        coins.add(Coin ("Bitcoin", 19058.57f, R.drawable.bitcoin))
-        coins.add(Coin ("Bnb", 275.60f, R.drawable.bnb))
-        coins.add(Coin ("Solana", 33.15f, R.drawable.solana))
-        coins.add(Coin ("Ethereum", 1311.50f, R.drawable.ethereum))
-        coins.add(Coin ("Bitcoin", 19058.57f, R.drawable.bitcoin))
-        coins.add(Coin ("Bnb", 275.60f, R.drawable.bnb))
-        coins.add(Coin ("Solana", 33.15f, R.drawable.solana))
-        coins.add(Coin ("Ethereum", 1311.50f, R.drawable.ethereum))
-        coins.add(Coin ("Bitcoin", 19058.57f, R.drawable.bitcoin))
-        coins.add(Coin ("Bnb", 275.60f, R.drawable.bnb))
-        coins.add(Coin ("Solana", 33.15f, R.drawable.solana))
-        coins.add(Coin ("Ethereum", 1311.50f, R.drawable.ethereum))
-
-    }
+        coins.add(Coin ("Bitcoin", "BTC",  "$19058.57", "1.7%", R.drawable.bitcoin))
+        coins.add(Coin ("Bnb", "BNB", "$275.60", "0.4%", R.drawable.bnb))
+        coins.add(Coin ("Solana","SOL", "$33.15","0", R.drawable.solana))
+        coins.add(Coin ("Ethereum", "ETH", "$1311.50", "1.6%", R.drawable.ethereum))
+        coins.add(Coin ("Bitcoin", "BTC",  "$19058.57", "1.7%", R.drawable.bitcoin))
+        coins.add(Coin ("Bnb", "BNB", "$275.60", "0.4%", R.drawable.bnb))
+        coins.add(Coin ("Solana","SOL", "$33.15","0", R.drawable.solana))
+        coins.add(Coin ("Ethereum", "ETH", "$1311.50", "1.6%", R.drawable.ethereum))
+        coins.add(Coin ("Bitcoin", "BTC",  "$19058.57", "1.7%", R.drawable.bitcoin))
+        coins.add(Coin ("Bnb", "BNB", "$275.60", "0.4%", R.drawable.bnb))
+        coins.add(Coin ("Solana","SOL", "$33.15","0", R.drawable.solana))
+        coins.add(Coin ("Ethereum", "ETH", "$1311.50", "1.6%", R.drawable.ethereum))
+        }
 }

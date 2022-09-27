@@ -1,42 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content" >
 
     <ImageView
-        android:id="@+id/flag"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:id="@+id/li_coin_image"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
 
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/name"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        android:layout_alignParentStart='true' />
 
     <TextView
-        android:id="@+id/name"
-        android:layout_width="0dp"
+        android:id="@+id/li_name"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:text="@string/coin_name"
+        android:textColor="@color/black"
+        android:textSize="18dp"
 
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/flag"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/price" />
+        android:layout_toEndOf="@+id/li_coin_image"
+        android:layout_alignTop="@+id/li_coin_image" />
 
     <TextView
-        android:id="@+id/price"
-        android:layout_width="0dp"
+        android:id="@+id/li_short_name"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/coin_short_name"
+        android:textColor="@color/grey"
+        android:textSize="18dp"
+
+        android:layout_toEndOf="@+id/li_coin_image"
+        android:layout_alignBottom ="@+id/li_coin_image" />
+
+    <TextView
+        android:id="@+id/li_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
         android:text="@string/price"
+        android:textColor="@color/black"
+        android:textSize="18dp"
 
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/flag"
-        app:layout_constraintTop_toBottomOf="@+id/name"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/li_coin_image" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/li_percent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/percent"
+        android:textColor="@color/grey"
+        android:textSize="18dp"
+
+        android:layout_alignParentEnd="true"
+        android:layout_alignBottom="@+id/li_coin_image" />
+
+</RelativeLayout>

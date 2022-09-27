@@ -30,16 +30,20 @@ class CoinAdapter(context: Context, resource: Int, coins: List<Coin>) :
 
         val coin: Coin = _coins[position]
 
-        viewHolder.imageView.setImageResource(coin.flagRes)
+        viewHolder.imageView.setImageResource(coin.imageCoinRes)
         viewHolder.nameView.text = coin.name
-        viewHolder.priceView.text = coin.price.toString()
+        viewHolder.shortNameView.text = coin.shortName
+        viewHolder.priceView.text = coin.price
+        viewHolder.percentView.text = coin.percent
 
         return mConvertView
     }
 
     private class ViewHolder(view: View) {
-        val imageView: ImageView = view.findViewById(R.id.flag)
-        val nameView: TextView = view.findViewById(R.id.name)
-        val priceView: TextView = view.findViewById(R.id.price)
+        val imageView: ImageView = view.findViewById(R.id.li_coin_image)
+        val nameView: TextView = view.findViewById(R.id.li_name)
+        val shortNameView: TextView = view.findViewById(R.id.li_short_name)
+        val priceView: TextView = view.findViewById(R.id.li_price)
+        val percentView: TextView = view.findViewById(R.id.li_percent)
     }
 }

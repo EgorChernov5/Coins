@@ -8,11 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="green">#76BA99</color>
-    <color name="green_A">#76A099</color>
-    <color name="brown">#876445</color>
-    <color name="beige">#CA955C</color>
-    <color name="earth">#EDDFB3</color>
+    <color name="green">#009966</color>
+    <color name="red">#E60C0C</color>
     <color name="grey">#A5A5A5</color>
     <color name="orange">#FFA500</color>
 </resources>

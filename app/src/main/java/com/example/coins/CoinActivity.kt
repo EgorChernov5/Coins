@@ -14,12 +14,12 @@ class CoinActivity : AppCompatActivity() {
 
         val imageView: ImageView = findViewById(R.id.ca_coin_image)
 
-        val arguments = intent.extras
-        if (arguments != null) {
-            val coin = arguments.getSerializable(Coin::class.java.simpleName) as Coin
-
-            imageView.setImageResource(coin.imageCoinRes)
-        }
+//        val arguments = intent.extras
+//        if (arguments != null) {
+//            val coin = arguments.getSerializable(Coin::class.java.simpleName) as Coin
+//
+//            imageView.setImageResource(coin.imageCoinRes)
+//        }
     }
 
     fun clickOnBack(view: View) {

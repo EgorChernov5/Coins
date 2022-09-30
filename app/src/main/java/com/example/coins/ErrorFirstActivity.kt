@@ -13,6 +13,8 @@ import com.google.android.material.chip.ChipGroup
 
 class ErrorFirstActivity : AppCompatActivity() {
     private lateinit var currency: CharSequence
+    private lateinit var chipsGroup: ChipGroup
+    private lateinit var chip: Chip
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,9 +28,25 @@ class ErrorFirstActivity : AppCompatActivity() {
             .load(R.drawable.bitcoin)
             .into(image)
 
-        val chipsGroup = findViewById<ChipGroup>(R.id.efa_chips_group)
-        val chip = chipsGroup.findViewById<Chip>(R.id.efa_usd)
-        currency = chip.text
+        // check currency
+        val arguments = intent.extras
+        if (arguments == null) {
+            Log.d("Coin", "SplFirstActivity: Chip is usd")
+            chipsGroup = findViewById<ChipGroup>(R.id.sfa_chips_group)
+            chip = chipsGroup.findViewById<Chip>(R.id.sfa_usd)
+            chip.isChecked = true
+            currency = chip.text
+        } else {
+            Log.d("Coin", "SplFirstActivity: Change chip")
+            currency = arguments.getString("Currency").toString()
+            chipsGroup = findViewById<ChipGroup>(R.id.efa_chips_group)
+            chip = if (currency == "Eur") {
+                chipsGroup.findViewById<Chip>(R.id.efa_eur)
+            } else {
+                chipsGroup.findViewById<Chip>(R.id.efa_usd)
+            }
+            chip.isChecked = true
+        }
 
         chipsGroup.setOnCheckedChangeListener { chipGroup: ChipGroup, checkedId: Int ->
             Log.d("Coin", "ErrorFirstActivity: Change chip")
@@ -40,6 +58,7 @@ class ErrorFirstActivity : AppCompatActivity() {
     fun clickOnRefresh(view: View) {
         Log.d("Test", "ErrorFirstActivity: Try loading coins data list again")
         val intent = Intent(this, SplFirstActivity::class.java)
+        intent.putExtra("Currency", currency)
         startActivity(intent)
         finish()
     }

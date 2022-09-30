@@ -21,10 +21,10 @@ class SplSecondActivity : AppCompatActivity() {
         Handler().postDelayed({
             try {
                 Log.d("SplSecondActivity", "Loading a coin data")
-                val coin = arguments!!.getSerializable(Coin::class.java.simpleName) as Coin
-                val intent = Intent(this, CoinActivity::class.java)
-                intent.putExtra(coin::class.java.simpleName, coin)
-                startActivity(intent)
+//                val coin = arguments!!.getSerializable(Coin::class.java.simpleName) as Coin
+//                val intent = Intent(this, CoinActivity::class.java)
+//                intent.putExtra(coin::class.java.simpleName, coin)
+//                startActivity(intent)
             } catch (e: Exception) {
                 Log.d("SplSecondActivity", "Lost data")
                 val intent = Intent(this, ErrorSecondActivity::class.java)

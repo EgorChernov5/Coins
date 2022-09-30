@@ -13,36 +13,51 @@ import com.google.android.material.chip.ChipGroup
 class MainActivity : AppCompatActivity() {
     private lateinit var coins: ArrayList<CoinsItem>
     private lateinit var currency: CharSequence
+    private lateinit var chipsGroup: ChipGroup
+    private lateinit var chip: Chip
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        Log.d("Test", "MainActivity: onCreate")
+        Log.d("Coin", "MainActivity: onCreate")
 
-        val chipsGroup = findViewById<ChipGroup>(R.id.ma_chips_group)
-        val chip = chipsGroup.findViewById<Chip>(R.id.ma_usd)
-        chip.isChecked = true
-        currency = chip.text
-
-        chipsGroup.setOnCheckedChangeListener { chipGroup: ChipGroup, checkedId: Int ->
-            Log.d("Test", "MainActivity: Change chip")
-            currency = chipGroup.findViewById<Chip>(checkedId).text
-            Toast.makeText(chipGroup.context, currency, Toast.LENGTH_SHORT).show()
-        }
-
-//        Set initial data()
+        // check currency
         val arguments = intent.extras
         if (arguments != null) {
-            coins = arguments.getSerializable(Coins::class.java.simpleName) as ArrayList<CoinsItem>
+            Log.d("Coin", "SplFirstActivity: Get chip")
+            currency = arguments.getString("Currency").toString()
+            chipsGroup = findViewById<ChipGroup>(R.id.ma_chips_group)
+            chip = if (currency == "Eur") {
+                chipsGroup.findViewById<Chip>(R.id.ma_eur)
+            } else {
+                chipsGroup.findViewById<Chip>(R.id.ma_usd)
+            }
+            chip.isChecked = true
+        } else {
+            throw Exception("Arguments == null")
         }
+
+        chipsGroup.setOnCheckedChangeListener { chipGroup: ChipGroup, checkedId: Int ->
+            Log.d("Coin", "MainActivity: Change chip")
+            currency = chipGroup.findViewById<Chip>(checkedId).text
+//            Toast.makeText(chipGroup.context, currency, Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, SplFirstActivity::class.java)
+            intent.putExtra("Currency", currency)
+            startActivity(intent)
+            finish()
+        }
+
+        // Set initial data()
+        Log.d("Coin", "MainActivity: Get data")
+        coins = arguments.getSerializable(Coins::class.java.simpleName) as ArrayList<CoinsItem>
 
         val recyclerView: RecyclerView = findViewById(R.id.ma_recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        val coinAdapter = CoinAdapter(coins)
+        val coinAdapter = CoinAdapter(coins, currency)
         recyclerView.adapter = coinAdapter
 
         coinAdapter.onItemClick = {
-            Log.d("Test", "MainActivity: Click on coin")
+            Log.d("Coin", "MainActivity: Click on coin")
             // Выбираем элемент
             val coin = it
             // Выводим результат

@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
-class CoinAdapter(private val coins: ArrayList<CoinsItem>) :
+class CoinAdapter(private val coins: ArrayList<CoinsItem>, private val currency: CharSequence) :
     RecyclerView.Adapter<CoinAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -21,14 +21,14 @@ class CoinAdapter(private val coins: ArrayList<CoinsItem>) :
 
     var onItemClick: ((CoinsItem) -> Unit)? = null
 
-//    inflate a list_item
+    // inflate a list_item
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.list_item, parent, false)
         return ViewHolder(view)
     }
 
-//    bind a list item to a view
+    // bind a list item to a view
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val itemCoins: CoinsItem = coins[position]
 
@@ -36,9 +36,17 @@ class CoinAdapter(private val coins: ArrayList<CoinsItem>) :
             .with(holder.itemView.context)
             .load(itemCoins.image)
             .into(holder.imageView)
+        holder.nameView.text = itemCoins.name
         holder.shortNameView.text = itemCoins.symbol.uppercase()
-        holder.priceView.text = itemCoins.current_price.toString()
-        holder.percentView.text = itemCoins.price_change_percentage_1h_in_currency.toString()
+        holder.priceView.text = MyStrParser.getPrice(itemCoins.current_price, currency)
+        holder.percentView.text = MyStrParser.getPercent(itemCoins.price_change_percentage_1h_in_currency)
+
+        // set color for percent
+        if (itemCoins.price_change_percentage_1h_in_currency >= 0) {
+            holder.percentView.setTextColor(holder.itemView.context.resources.getColor(R.color.green))
+        } else {
+            holder.percentView.setTextColor(holder.itemView.context.resources.getColor(R.color.red))
+        }
 
         holder.itemView.setOnClickListener {
             onItemClick?.invoke(itemCoins)

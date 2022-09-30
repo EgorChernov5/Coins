@@ -5,10 +5,16 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface ApiInterface {
-    @GET("coins/markets?vs_currency=usd&per_page=10&page=1&sparkline=false&price_change_percentage=1h")
-    fun getCoins() : Call<Coins>
+    @GET("coins/markets")
+    fun getCoins(@Query("vs_currency") vs_currency: String,
+                 @Query("per_page") per_page: Int,
+                 @Query("page") page: Int,
+                 @Query("sparkline") sparkline: Boolean,
+                 @Query("price_change_percentage") price_change_percentage: String,
+                 ) : Call<Coins>
 
 //    @GET("coins/{id}?localization=false&tickers=false&market_data=false&community_data=false&developer_data=false&sparkline=false")
 //    fun getCoin() : Call<List<Coin>>

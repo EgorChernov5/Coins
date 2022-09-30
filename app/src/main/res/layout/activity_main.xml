@@ -82,7 +82,7 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/ma_recyclerView"
+        android:id="@+id/ma_recycler_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
         tools:listitem="@layout/list_item"

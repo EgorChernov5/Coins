@@ -9,13 +9,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
     private val coins: MutableList<Coin> = mutableListOf()
     private lateinit var currency: CharSequence
-
-//    private var listView: ListView? = null
-//    private var coinAdapter: CoinAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
 //        test
         setInitialData()
 
-        val recyclerView: RecyclerView = findViewById(R.id.ma_recyclerView)
+        val recyclerView: RecyclerView = findViewById(R.id.ma_recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(this)
         val coinAdapter = CoinAdapter(coins)
         recyclerView.adapter = coinAdapter
@@ -53,6 +53,22 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra(selectedCoin::class.java.simpleName, selectedCoin)
             startActivity(intent)
         }
+
+        val apiInterface = ApiInterface.create().getCoins()
+
+//        put apiInterface in SplFirstActivity todo
+        apiInterface.enqueue( object : Callback<List<Coin>> {
+//            use when response is correct
+            override fun onResponse(call: Call<List<Coin>>, response: Response<List<Coin>>) {
+//                bind response to coinAdapter todo
+//                if(response?.body() != null)
+//                    coinAdapter.setMovieListItems(response.body()!!)
+            }
+//            use when response isn't correct
+            override fun onFailure(call: Call<List<Coin>>, t: Throwable) {
+
+            }
+        })
     }
 
     //    test

@@ -37,10 +37,11 @@ class SplFirstActivity : AppCompatActivity() {
             Log.d("Coin", "SplFirstActivity: Change chip")
             currency = arguments.getString("Currency").toString()
             chipsGroup = findViewById<ChipGroup>(R.id.sfa_chips_group)
-            chip = if (currency == "Eur") {
-                chipsGroup.findViewById<Chip>(R.id.sfa_eur)
+            if (currency == "Eur") {
+                chip = chipsGroup.findViewById<Chip>(R.id.sfa_eur)
             } else {
-                chipsGroup.findViewById<Chip>(R.id.sfa_usd)
+                chip = chipsGroup.findViewById<Chip>(R.id.sfa_usd)
+                currency = "Usd"
             }
             chip.isChecked = true
         }

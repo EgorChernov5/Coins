@@ -28,13 +28,13 @@
         android:id="@+id/li_short_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/li_coin_image"
         android:layout_marginStart="16dp"
-        android:text="@string/coin_short_name"
-        android:textColor="@color/grey"
-        android:textSize="20dp"
-
         android:layout_toEndOf="@+id/li_coin_image"
-        android:layout_alignBottom ="@+id/li_coin_image" />
+        android:text="@string/coin_short_name"
+
+        android:textColor="@color/grey"
+        android:textSize="20dp" />
 
     <TextView
         android:id="@+id/li_price"

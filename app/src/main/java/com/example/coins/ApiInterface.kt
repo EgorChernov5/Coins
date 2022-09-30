@@ -16,8 +16,13 @@ interface ApiInterface {
                  @Query("price_change_percentage") price_change_percentage: String,
                  ) : Call<Coins>
 
-//    @GET("coins/{id}?localization=false&tickers=false&market_data=false&community_data=false&developer_data=false&sparkline=false")
-//    fun getCoin() : Call<List<Coin>>
+    @GET("coins/{id}")
+    fun getCoin(@Path("id") id: String,
+                @Query("localization") localization: Boolean,
+                @Query("tickers") tickers: Boolean,
+                @Query("market_data") market_data: Boolean,
+                @Query("community_data") community_data: Boolean,
+                @Query("developer_data") developer_data: Boolean) : Call<Coin>
 
     companion object {
         var BASE_URL = "https://api.coingecko.com/api/v3/"

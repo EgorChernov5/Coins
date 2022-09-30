@@ -56,15 +56,15 @@ class MainActivity : AppCompatActivity() {
 
     //    test
     private fun setInitialData(){
-        coins.add(Coin ("Bitcoin", "BTC",  "$19058.57", "1.7%", R.drawable.bitcoin))
+        coins.add(Coin ("Bitcoin", "BTC",  "$19058.57", "1.7%", R.drawable.bitcoin1))
         coins.add(Coin ("Bnb", "BNB", "$275.60", "0.4%", R.drawable.bnb))
         coins.add(Coin ("Solana","SOL", "$33.15","0", R.drawable.solana))
         coins.add(Coin ("Ethereum", "ETH", "$1311.50", "1.6%", R.drawable.ethereum))
-        coins.add(Coin ("Bitcoin", "BTC",  "$19058.57", "1.7%", R.drawable.bitcoin))
+        coins.add(Coin ("Bitcoin", "BTC",  "$19058.57", "1.7%", R.drawable.bitcoin1))
         coins.add(Coin ("Bnb", "BNB", "$275.60", "0.4%", R.drawable.bnb))
         coins.add(Coin ("Solana","SOL", "$33.15","0", R.drawable.solana))
         coins.add(Coin ("Ethereum", "ETH", "$1311.50", "1.6%", R.drawable.ethereum))
-        coins.add(Coin ("Bitcoin", "BTC",  "$19058.57", "1.7%", R.drawable.bitcoin))
+        coins.add(Coin ("Bitcoin", "BTC",  "$19058.57", "1.7%", R.drawable.bitcoin1))
         coins.add(Coin ("Bnb", "BNB", "$275.60", "0.4%", R.drawable.bnb))
         coins.add(Coin ("Solana","SOL", "$33.15","0", R.drawable.solana))
         coins.add(Coin ("Ethereum", "ETH", "$1311.50", "1.6%", R.drawable.ethereum))

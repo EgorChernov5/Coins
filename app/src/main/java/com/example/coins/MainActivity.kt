@@ -4,18 +4,18 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
-import android.widget.AdapterView
-import android.widget.ListView
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 
 class MainActivity : AppCompatActivity() {
-    private var listView: ListView? = null
     private val coins: MutableList<Coin> = mutableListOf()
-    private var coinAdapter: CoinAdapter? = null
-    var currency: CharSequence? = null
+    private lateinit var currency: CharSequence
+
+//    private var listView: ListView? = null
+//    private var coinAdapter: CoinAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,21 +29,22 @@ class MainActivity : AppCompatActivity() {
 
         chipsGroup.setOnCheckedChangeListener { chipGroup: ChipGroup, checkedId: Int ->
             Log.d("MainActivity", "Change chip")
-            currency = chipGroup.findViewById<Chip>(checkedId)?.text
+            currency = chipGroup.findViewById<Chip>(checkedId).text
             Toast.makeText(chipGroup.context, currency ?: "No Choice", Toast.LENGTH_SHORT).show()
         }
 
 //        test
         setInitialData()
 
-        listView = findViewById<ListView>(R.id.ma_coins_list)
-        coinAdapter = CoinAdapter(this, R.layout.list_item, coins)
-        listView?.adapter = coinAdapter
-        listView?.setOnItemClickListener { parent: AdapterView<*>?, view: View?,
-                                           position: Int, id: Long ->
+        val recyclerView: RecyclerView = findViewById(R.id.ma_recyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        val coinAdapter = CoinAdapter(coins)
+        recyclerView.adapter = coinAdapter
+
+        coinAdapter.onItemClick = {
             Log.d("MainActivity", "Click on coin")
-            // Выбираем элемент, преобразуем к String
-            val selectedCoin = parent?.getItemAtPosition(position) as Coin
+            // Выбираем элемент
+            val selectedCoin = it
             // Выводим результат
             Toast.makeText(this, selectedCoin.toString(), Toast.LENGTH_SHORT).show()
             // Переходим к CoinActivity через SplSecondActivity

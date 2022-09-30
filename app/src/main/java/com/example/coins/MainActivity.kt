@@ -4,9 +4,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.coins.apiCoins.Coins
+import com.example.coins.apiCoins.CoinsItem
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 

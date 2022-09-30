@@ -1,5 +1,7 @@
 package com.example.coins
 
+import com.example.coins.apiCoin.Coin
+import com.example.coins.apiCoins.Coins
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

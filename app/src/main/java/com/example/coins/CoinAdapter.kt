@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.coins.apiCoins.CoinsItem
 
 class CoinAdapter(private val coins: ArrayList<CoinsItem>, private val currency: CharSequence) :
     RecyclerView.Adapter<CoinAdapter.ViewHolder>() {

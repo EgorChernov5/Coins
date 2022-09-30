@@ -1,4 +1,4 @@
-package com.example.coins
+package com.example.coins.apiCoins
 
 import java.io.Serializable
 

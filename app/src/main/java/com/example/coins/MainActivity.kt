@@ -27,11 +27,11 @@ class MainActivity : AppCompatActivity() {
         if (arguments != null) {
             Log.d("Coin", "SplFirstActivity: Get chip")
             currency = arguments.getString("Currency").toString()
-            chipsGroup = findViewById<ChipGroup>(R.id.ma_chips_group)
+            chipsGroup = findViewById(R.id.ma_chips_group)
             chip = if (currency == "Eur") {
-                chipsGroup.findViewById<Chip>(R.id.ma_eur)
+                chipsGroup.findViewById(R.id.ma_eur)
             } else {
-                chipsGroup.findViewById<Chip>(R.id.ma_usd)
+                chipsGroup.findViewById(R.id.ma_usd)
             }
             chip.isChecked = true
         } else {
@@ -50,6 +50,7 @@ class MainActivity : AppCompatActivity() {
 
         // Set initial data()
         Log.d("Coin", "MainActivity: Get data")
+        @Suppress("UNCHECKED_CAST")
         coins = arguments.getSerializable(Coins::class.java.simpleName) as ArrayList<CoinsItem>
 
         val recyclerView: RecyclerView = findViewById(R.id.ma_recycler_view)

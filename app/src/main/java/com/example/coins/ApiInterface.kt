@@ -27,7 +27,7 @@ interface ApiInterface {
                 @Query("developer_data") developer_data: Boolean) : Call<Coin>
 
     companion object {
-        var BASE_URL = "https://api.coingecko.com/api/v3/"
+        private var BASE_URL = "https://api.coingecko.com/api/v3/"
         fun create() : ApiInterface {
             val retrofit = Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())

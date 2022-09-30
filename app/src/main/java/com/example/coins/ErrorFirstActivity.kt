@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
-import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
@@ -32,18 +31,18 @@ class ErrorFirstActivity : AppCompatActivity() {
         val arguments = intent.extras
         if (arguments == null) {
             Log.d("Coin", "SplFirstActivity: Chip is usd")
-            chipsGroup = findViewById<ChipGroup>(R.id.sfa_chips_group)
-            chip = chipsGroup.findViewById<Chip>(R.id.sfa_usd)
+            chipsGroup = findViewById(R.id.sfa_chips_group)
+            chip = chipsGroup.findViewById(R.id.sfa_usd)
             chip.isChecked = true
             currency = chip.text
         } else {
             Log.d("Coin", "SplFirstActivity: Change chip")
             currency = arguments.getString("Currency").toString()
-            chipsGroup = findViewById<ChipGroup>(R.id.efa_chips_group)
+            chipsGroup = findViewById(R.id.efa_chips_group)
             chip = if (currency == "Eur") {
-                chipsGroup.findViewById<Chip>(R.id.efa_eur)
+                chipsGroup.findViewById(R.id.efa_eur)
             } else {
-                chipsGroup.findViewById<Chip>(R.id.efa_usd)
+                chipsGroup.findViewById(R.id.efa_usd)
             }
             chip.isChecked = true
         }

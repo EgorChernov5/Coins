@@ -3,8 +3,8 @@ package com.example.coins
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.util.Log
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.coins.apiCoins.Coins
 import com.google.android.material.chip.Chip
@@ -29,18 +29,18 @@ class SplFirstActivity : AppCompatActivity() {
         val arguments = intent.extras
         if (arguments == null) {
             Log.d("Coin", "SplFirstActivity: Chip is usd")
-            chipsGroup = findViewById<ChipGroup>(R.id.sfa_chips_group)
-            chip = chipsGroup.findViewById<Chip>(R.id.sfa_usd)
+            chipsGroup = findViewById(R.id.sfa_chips_group)
+            chip = chipsGroup.findViewById(R.id.sfa_usd)
             chip.isChecked = true
             currency = chip.text
         } else {
             Log.d("Coin", "SplFirstActivity: Change chip")
             currency = arguments.getString("Currency").toString()
-            chipsGroup = findViewById<ChipGroup>(R.id.sfa_chips_group)
+            chipsGroup = findViewById(R.id.sfa_chips_group)
             if (currency == "Eur") {
-                chip = chipsGroup.findViewById<Chip>(R.id.sfa_eur)
+                chip = chipsGroup.findViewById(R.id.sfa_eur)
             } else {
-                chip = chipsGroup.findViewById<Chip>(R.id.sfa_usd)
+                chip = chipsGroup.findViewById(R.id.sfa_usd)
                 currency = "Usd"
             }
             chip.isChecked = true
@@ -52,7 +52,7 @@ class SplFirstActivity : AppCompatActivity() {
             currency = chipGroup.findViewById<Chip>(checkedIds[0]).text
         }
 
-        Handler().postDelayed({
+        Handler(Looper.getMainLooper()).postDelayed({
             val apiInterface = ApiInterface.create().getCoins(
                 currency.toString().lowercase(),
                 10,

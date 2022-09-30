@@ -44,9 +44,9 @@ class CoinAdapter(private val coins: ArrayList<CoinsItem>, private val currency:
 
         // set color for percent
         if (itemCoins.price_change_percentage_1h_in_currency >= 0) {
-            holder.percentView.setTextColor(holder.itemView.context.resources.getColor(R.color.green))
+            holder.percentView.setTextColor(holder.itemView.context.getColor(R.color.green))
         } else {
-            holder.percentView.setTextColor(holder.itemView.context.resources.getColor(R.color.red))
+            holder.percentView.setTextColor(holder.itemView.context.getColor(R.color.red))
         }
 
         holder.itemView.setOnClickListener {

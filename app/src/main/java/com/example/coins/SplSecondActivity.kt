@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.View
 import com.example.coins.apiCoin.Coin
@@ -27,7 +28,7 @@ class SplSecondActivity : AppCompatActivity() {
             throw Exception("Arguments == null")
         }
 
-        Handler().postDelayed({
+        Handler(Looper.getMainLooper()).postDelayed({
             val apiInterface = ApiInterface.create().getCoin(
                 id,
                 false,

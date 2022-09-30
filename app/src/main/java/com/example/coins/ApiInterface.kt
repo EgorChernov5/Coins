@@ -8,7 +8,7 @@ import retrofit2.http.Path
 
 interface ApiInterface {
     @GET("coins/markets?vs_currency=usd&per_page=10&page=1&sparkline=false&price_change_percentage=1h")
-    fun getCoins() : Call<List<Coin>>
+    fun getCoins() : Call<Coins>
 
 //    @GET("coins/{id}?localization=false&tickers=false&market_data=false&community_data=false&developer_data=false&sparkline=false")
 //    fun getCoin() : Call<List<Coin>>

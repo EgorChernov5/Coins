@@ -12,13 +12,13 @@ import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 
 class ErrorFirstActivity : AppCompatActivity() {
-    var currency: CharSequence? = null
+    private lateinit var currency: CharSequence
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_error_first)
 
-        Log.d("ErrorFirstActivity", "onCreate")
+        Log.d("Coin", "ErrorFirstActivity: onCreate")
 
         val image = findViewById<ImageView>(R.id.efa_image)
         Glide
@@ -30,17 +30,15 @@ class ErrorFirstActivity : AppCompatActivity() {
         val chip = chipsGroup.findViewById<Chip>(R.id.efa_usd)
         currency = chip.text
 
-        Log.d("ErrorFirstActivity", "Initial chips")
-
         chipsGroup.setOnCheckedChangeListener { chipGroup: ChipGroup, checkedId: Int ->
-            Log.d("ErrorFirstActivity", "Change chip")
-            currency = chipGroup.findViewById<Chip>(checkedId)?.text
-            Toast.makeText(chipGroup.context, currency ?: "No Choice", Toast.LENGTH_SHORT).show()
+            Log.d("Coin", "ErrorFirstActivity: Change chip")
+            currency = chipGroup.findViewById<Chip>(checkedId).text
+            Toast.makeText(chipGroup.context, currency, Toast.LENGTH_SHORT).show()
         }
     }
 
     fun clickOnRefresh(view: View) {
-        Log.d("ErrorFirstActivity", "Try loading coins data list again")
+        Log.d("Test", "ErrorFirstActivity: Try loading coins data list again")
         val intent = Intent(this, SplFirstActivity::class.java)
         startActivity(intent)
         finish()

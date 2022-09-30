@@ -6,8 +6,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 
-class CoinAdapter(private val coins: List<Coin>) :
+class CoinAdapter(private val coins: ArrayList<CoinsItem>) :
     RecyclerView.Adapter<CoinAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -18,7 +19,7 @@ class CoinAdapter(private val coins: List<Coin>) :
         val percentView: TextView = view.findViewById(R.id.li_percent)
     }
 
-    var onItemClick: ((Coin) -> Unit)? = null
+    var onItemClick: ((CoinsItem) -> Unit)? = null
 
 //    inflate a list_item
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -29,13 +30,15 @@ class CoinAdapter(private val coins: List<Coin>) :
 
 //    bind a list item to a view
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val itemCoins = coins[position]
+        val itemCoins: CoinsItem = coins[position]
 
-        holder.imageView.setImageResource(itemCoins.imageCoinRes)
-        holder.nameView.text = itemCoins.name
-        holder.shortNameView.text = itemCoins.shortName
-        holder.priceView.text = itemCoins.price
-        holder.percentView.text = itemCoins.percent
+        Glide
+            .with(holder.itemView.context)
+            .load(itemCoins.image)
+            .into(holder.imageView)
+        holder.shortNameView.text = itemCoins.symbol.uppercase()
+        holder.priceView.text = itemCoins.current_price.toString()
+        holder.percentView.text = itemCoins.price_change_percentage_1h_in_currency.toString()
 
         holder.itemView.setOnClickListener {
             onItemClick?.invoke(itemCoins)

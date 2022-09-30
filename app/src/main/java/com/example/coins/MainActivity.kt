@@ -38,10 +38,10 @@ class MainActivity : AppCompatActivity() {
             throw Exception("Arguments == null")
         }
 
-        chipsGroup.setOnCheckedChangeListener { chipGroup: ChipGroup, checkedId: Int ->
+        chipsGroup.setOnCheckedStateChangeListener { chipGroup: ChipGroup,
+                                                     checkedIds: MutableList<Int> ->
             Log.d("Coin", "MainActivity: Change chip")
-            currency = chipGroup.findViewById<Chip>(checkedId).text
-//            Toast.makeText(chipGroup.context, currency, Toast.LENGTH_SHORT).show()
+            currency = chipGroup.findViewById<Chip>(checkedIds[0]).text
             val intent = Intent(this, SplFirstActivity::class.java)
             intent.putExtra("Currency", currency)
             startActivity(intent)

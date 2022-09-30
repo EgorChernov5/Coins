@@ -48,10 +48,10 @@ class ErrorFirstActivity : AppCompatActivity() {
             chip.isChecked = true
         }
 
-        chipsGroup.setOnCheckedChangeListener { chipGroup: ChipGroup, checkedId: Int ->
+        chipsGroup.setOnCheckedStateChangeListener { chipGroup: ChipGroup,
+                                                     checkedIds: MutableList<Int> ->
             Log.d("Coin", "ErrorFirstActivity: Change chip")
-            currency = chipGroup.findViewById<Chip>(checkedId).text
-            Toast.makeText(chipGroup.context, currency, Toast.LENGTH_SHORT).show()
+            currency = chipGroup.findViewById<Chip>(checkedIds[0]).text
         }
     }
 

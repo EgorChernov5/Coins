@@ -27,24 +27,6 @@ class SplSecondActivity : AppCompatActivity() {
             throw Exception("Arguments == null")
         }
 
-        /*Handler().postDelayed({
-            try {
-                Log.d("SplSecondActivity", "Loading a coin data")
-                val coin = arguments!!.getSerializable(Coin::class.java.simpleName) as Coin
-                val intent = Intent(this, CoinActivity::class.java)
-                intent.putExtra(coin::class.java.simpleName, coin)
-                startActivity(intent)
-            } catch (e: Exception) {
-                Log.d("SplSecondActivity", "Lost data")
-                val intent = Intent(this, ErrorSecondActivity::class.java)
-                startActivity(intent)
-            }
-            finally {
-                Log.d("SplSecondActivity", "Finish")
-                finish()
-            }
-        }, 3000)*/
-
         Handler().postDelayed({
             val apiInterface = ApiInterface.create().getCoin(
                 id,

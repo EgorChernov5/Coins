@@ -14,9 +14,14 @@
         android:theme="@style/Theme.Coins"
         tools:targetApi="31">
         <activity
+            android:name=".ErrorSecondActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ErrorFirstActivity"
+            android:exported="false" />
+        <activity
             android:name=".SplSecondActivity"
             android:exported="false" />
-
         <activity
             android:name=".SplFirstActivity"
             android:exported="true">
@@ -26,7 +31,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".CoinActivity"
             android:exported="false"
@@ -35,7 +39,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.coins.MainActivity" />
         </activity>
-
         <activity
             android:name=".MainActivity"
             android:exported="true">

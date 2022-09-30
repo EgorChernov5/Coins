@@ -18,10 +18,19 @@ class SplFirstActivity : AppCompatActivity() {
         Log.d("SplFirstActivity", "onCreate")
 
         Handler().postDelayed({
-            Log.d("SplFirstActivity", "Loading coins data list")
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            finish()
-        }, 3000)
+            try {
+                Log.d("SplFirstActivity", "Loading coins data list")
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+            } catch (e: Exception) {
+                Log.d("SplFirstActivity", "Error of loading coins data list")
+                val intent = Intent(this, ErrorFirstActivity::class.java)
+                startActivity(intent)
+            }
+            finally {
+                Log.d("SplFirstActivity", "Finish")
+                finish()
+            }
+        },3000)
     }
 }

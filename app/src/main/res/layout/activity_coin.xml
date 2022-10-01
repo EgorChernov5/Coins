@@ -48,14 +48,15 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:src="@drawable/ic_back"
-                            android:onClick="clickOnBack"/>
+                            android:onClick="clickOnBack"
+                            android:contentDescription="@string/image_des"/>
 
                         <TextView
                             android:id="@+id/ca_coin_name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Coin name"
-                            android:textSize="24dp"
+                            android:text="@string/coin_title_name"
+                            android:textSize="@dimen/title_size"
                             android:textColor="@color/black"
                             android:layout_marginStart="8dp"
                             android:layout_gravity="center"/>
@@ -73,6 +74,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_margin="16dp"
+            android:contentDescription="@string/image_des"
 
             app:layout_constraintTop_toBottomOf="@+id/ca_app_bar_layout"
             app:layout_constraintStart_toStartOf="parent"
@@ -84,7 +86,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:text="@string/des"
-            android:textSize="20dp"
+            android:textSize="@dimen/title1_size"
             android:textStyle="bold"
             app:layout_constraintHorizontal_bias="0"
 
@@ -97,7 +99,7 @@
             android:layout_height="wrap_content"
             android:padding="16dp"
             android:text="@string/description"
-            android:textSize="18dp"
+            android:textSize="@dimen/title2_size"
             app:layout_constraintHorizontal_bias="0.5"
 
             app:layout_constraintTop_toBottomOf="@+id/ca_des"
@@ -110,7 +112,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:text="@string/category"
-            android:textSize="20dp"
+            android:textSize="@dimen/title1_size"
             android:textStyle="bold"
             app:layout_constraintHorizontal_bias="0"
 
@@ -123,7 +125,7 @@
             android:layout_height="wrap_content"
             android:padding="16dp"
             android:text="@string/categories"
-            android:textSize="18dp"
+            android:textSize="@dimen/title2_size"
             app:layout_constraintHorizontal_bias="0.5"
 
             app:layout_constraintTop_toBottomOf="@+id/ca_category"

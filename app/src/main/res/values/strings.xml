@@ -1,21 +1,30 @@
 <resources>
+<!--    App-->
     <string name="app_name">Coins</string>
+
+<!--    MainActivity-->
     <string name="main_title_name">Список криптовалют</string>
     <string name="second_title_name">Coin name</string>
+    <string name="coin_title_name">Coin name</string>
 
+<!--    ListItem-->
     <string name="coin_name">Name</string>
     <string name="coin_short_name">Short name</string>
     <string name="price">Price</string>
     <string name="percent">Percent</string>
+    <string name="image_des">Image</string>
+
+<!--    CoinActivity-->
+    <string name="description">Bitcoin - это первые успешные интернет-деньги, основанные на одноранговой технологии; при этом ни один центральный банк или орган власти не участвует в транзакциях и производстве валюты Bitcoin. Он был создан анонимным человеком/группой под именем Сатоши Накамото.</string>
     <string name="des">Description</string>
     <string name="category">Category</string>
     <string name="categories">Smart Contract Platform, Ethereum, Ecosystems</string>
 
+<!--    Chips-->
     <string name="usd">Usd</string>
     <string name="eur">Eur</string>
 
-    <string name="description">Bitcoin - это первые успешные интернет-деньги, основанные на одноранговой технологии; при этом ни один центральный банк или орган власти не участвует в транзакциях и производстве валюты Bitcoin. Он был создан анонимным человеком/группой под именем Сатоши Накамото.</string>
-
+<!--    ErrorScreenActivity-->
     <string name="error_text">Случилась какая-то ошибка:(\nПопробуем снова?</string>
     <string name="error_button">Попробовать</string>
 </resources>

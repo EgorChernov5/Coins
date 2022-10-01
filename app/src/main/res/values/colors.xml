@@ -11,5 +11,8 @@
     <color name="green">#009966</color>
     <color name="red">#E60C0C</color>
     <color name="grey">#A5A5A5</color>
+    <color name="dull_grey">#D7D7D7</color>
     <color name="orange">#FFA500</color>
+    <color name="tangerine">#FF8400</color>
+    <color name="wheat">#F5DEB3</color>
 </resources>

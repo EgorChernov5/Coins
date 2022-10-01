@@ -3,12 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/krish/AndroidStudioProjects/Projects/Coins/app/src/main/res/drawable/background_color_chip_state_list.xml" value="0.192" />
         <entry key="..\:/Users/krish/AndroidStudioProjects/Projects/Coins/app/src/main/res/drawable/border.xml" value="0.1895" />
+        <entry key="..\:/Users/krish/AndroidStudioProjects/Projects/Coins/app/src/main/res/drawable/text_color_chip_state_list.xml" value="0.192" />
         <entry key="..\:/Users/krish/AndroidStudioProjects/Projects/Coins/app/src/main/res/layout/activity_coin.xml" value="0.264" />
         <entry key="..\:/Users/krish/AndroidStudioProjects/Projects/Coins/app/src/main/res/layout/activity_error_first.xml" value="0.264" />
         <entry key="..\:/Users/krish/AndroidStudioProjects/Projects/Coins/app/src/main/res/layout/activity_error_second.xml" value="0.264" />
-        <entry key="..\:/Users/krish/AndroidStudioProjects/Projects/Coins/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/Users/krish/AndroidStudioProjects/Projects/Coins/app/src/main/res/layout/activity_spl_first.xml" value="0.1" />
+        <entry key="..\:/Users/krish/AndroidStudioProjects/Projects/Coins/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/krish/AndroidStudioProjects/Projects/Coins/app/src/main/res/layout/activity_spl_first.xml" value="0.264" />
         <entry key="..\:/Users/krish/AndroidStudioProjects/Projects/Coins/app/src/main/res/layout/activity_spl_second.xml" value="0.264" />
         <entry key="..\:/Users/krish/AndroidStudioProjects/Projects/Coins/app/src/main/res/layout/list_item.xml" value="0.264" />
         <entry key="..\:/Users/krish/AndroidStudioProjects/Projects/Coins/app/src/main/res/layout/toolbar.xml" value="0.264" />

@@ -15,6 +15,7 @@ class CoinActivity : AppCompatActivity() {
         setContentView(R.layout.activity_coin)
         Log.d("CoinActivity", "onCreate")
 
+        val textView = findViewById<TextView>(R.id.ca_coin_name)
         val image = findViewById<ImageView>(R.id.ca_coin_image)
         val description = findViewById<TextView>(R.id.ca_description)
         val categories = findViewById<TextView>(R.id.ca_categories)
@@ -24,6 +25,8 @@ class CoinActivity : AppCompatActivity() {
             // get the coin by id
             val coin = arguments.getSerializable(Coin::class.java.simpleName) as Coin
             // set a view value
+            val coinName: String = coin.name
+            textView.text = coinName
             Glide
                 .with(this)
                 .load(coin.image.large)

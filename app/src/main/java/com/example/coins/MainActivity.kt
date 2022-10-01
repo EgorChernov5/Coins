@@ -60,14 +60,11 @@ class MainActivity : AppCompatActivity() {
 
         coinAdapter.onItemClick = {
             Log.d("Coin", "MainActivity: Click on coin")
-            // Выбираем элемент
             val coinId: String = it.id
-            // Выводим результат
-//            Toast.makeText(this, coinId, Toast.LENGTH_SHORT).show()
-            // Переходим к CoinActivity через SplSecondActivity
             val intent = Intent(this, SplSecondActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY)
             intent.putExtra("coinId", coinId)
+            intent.putExtra("coinName", it.name)
             startActivity(intent)
         }
     }

@@ -42,14 +42,15 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:src="@drawable/ic_back"
-                        android:onClick="clickOnBack"/>
+                        android:onClick="clickOnBack"
+                        android:contentDescription="@string/image_des"/>
 
                     <TextView
                         android:id="@+id/esa_coin_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Coin name"
-                        android:textSize="24dp"
+                        android:text="@string/coin_title_name"
+                        android:textSize="@dimen/title_size"
                         android:textColor="@color/black"
                         android:layout_marginStart="8dp"
                         android:layout_gravity="center"/>
@@ -66,6 +67,7 @@
         android:id="@+id/esa_image"
         android:layout_width="130dp"
         android:layout_height="130dp"
+        android:contentDescription="@string/image_des"
 
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -77,7 +79,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/error_text"
-        android:textSize="16dp"
+        android:textSize="@dimen/title3_size"
         android:textColor="@color/black"
         android:gravity="center"
         android:layout_marginTop="16dp"
@@ -92,7 +94,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/error_button"
-        android:textSize="16dp"
+        android:textSize="@dimen/title3_size"
         android:textColor="@color/white"
         android:backgroundTint="@color/orange"
         android:gravity="center"
